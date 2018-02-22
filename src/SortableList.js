@@ -579,8 +579,9 @@ export default class SortableList extends Component {
     }
   };
 
-  _onScroll = ({nativeEvent: {contentOffset}}) => {
-      this._contentOffset = contentOffset;
+  _onScroll = (event) => {
+    this.props.onScroll(event);
+    this._contentOffset = event.nativeEvent.contentOffset;
   };
 
   _onRefContainer = (component) => {
